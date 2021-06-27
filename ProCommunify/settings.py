@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
-    'Accounts'
+    'Accounts',
+    'News_Feed'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMP_AUTH,],
+        'DIRS': [TEMPLATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -127,10 +127,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_AUTH = os.path.join(BASE_DIR, 'static')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [ STATIC_AUTH, ]
+STATICFILES_DIRS = [ STATIC_DIR, ]
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL ='/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "news_feed:news_feed_url" # directing to the news feed page
+LOGOUT_REDIRECT_URL = "home" #directing to the home page

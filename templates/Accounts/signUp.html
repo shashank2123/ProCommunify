@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% load bootstap3 %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,8 +14,19 @@
             
             <h1>Sign Up</h1>
             <form class="formg" action="" method="POST">
+                {% csrf_token %}
+                {%for field in form %}
+                    <p><label>{{field.label}}</label><p>
+                    <p>{{field}}<p>
+                    {% if field.errors %}
+                        {% for error in  field.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                <input type='submit' id='submit' value='Sign Up'/>
             </form>
-            <h3>Already have an account?<a href={% url "ProCommunifyApp:signIn" %}>Login</a></h3>
+            <h3>Already have an account?<a href={% url "Accounts:login_url" %}>Login</a></h3>
             <div class=" line"> </div>
         </div>
         <div class="section2">

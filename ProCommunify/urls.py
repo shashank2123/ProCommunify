@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'',TemplateView.as_view(template_name ='Home.html'),name='home'),
+    path(r'account/',include('Accounts.urls',namespace='account'),name='account_url'),
+    path(r'news_feed/',include('News_Feed.urls',namespace='news_feed'),name='account_url')
 ]

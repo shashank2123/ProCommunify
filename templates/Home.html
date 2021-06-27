@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ProCommunify</title>
+</head>
+<body>
+	<h1>Welcome to ProCommunify</h1>
+	<p>Find your programer community</p>
+	<a href={% url "Accounts:login_url" %}><button> Login </button></a>
+	<a href={% url "Accounts:signup_url" %}><button>Sign Up</button></a>
+
+</body>
+</html>

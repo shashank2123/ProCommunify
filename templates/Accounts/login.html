@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-{% load bootstap3 %}
+{% load bootstrap3 %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,12 +15,21 @@
             
             <h1>LOGIN</h1>
             <form class="formg" action="" method="POST">
+                {% csrf_token %}
+                {%for field in form %}
+                    <p><label>{{field.label}}</label><p>
+                    <p>{{field}}<p>
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+                {% endfor %}
+                <input type='submit' id='submit' value='Login'/>
             </form>
-            <h3>Don't have an account?<a href={% url "Accounts:signUp" %}>Sign Up</a></h3>
+            <h3>Don't have an account?<a href={% url "Accounts:signup_url" %}>Sign Up</a></h3>
             <div class=" line"> </div>
         </div>
         <div class="section2">
-            <img src={% static "/images/PicsArt.jpeg" %} alt="ProCommunify" >
+            <img src={% static "Accounts/images/PicsArt.jpeg" %} alt="ProCommunify" >
         </div>
     </div>   
 
