@@ -1,0 +1,17 @@
+#yo{
+    width: 50%;
+  
+    color: black;
+    background-color:white;
+    border-radius: 5px;
+    margin: 10px;
+}
+body{
+    background-color: #639ffa;
+}
+
+#box{
+    
+    margin-right: 0;
+    margin-left: 0;
+}
